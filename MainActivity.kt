@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     private var board = Array(3) { arrayOfNulls<String>(3) }
     private var isGameActive = true
 
-    @override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -68,6 +68,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun resetGame() {
         board = Array(3) { arrayOfNulls<String>(3) }
+        for (i in board.indices) {
+            for (j in board[i].indices) {
+                board[i][j] = null
+            }
+        }
+
         currentPlayer = "X"
         isGameActive = true
 
